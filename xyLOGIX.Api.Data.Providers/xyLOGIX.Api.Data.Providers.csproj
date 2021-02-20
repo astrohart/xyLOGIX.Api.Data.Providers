@@ -64,10 +64,12 @@
     <RootNamespace>xyLOGIX.Api.Data.Providers</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiDataProviderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -83,6 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Api.Data.Repositories\xyLOGIX.Api.Data.Repositories.Events\xyLOGIX.Api.Data.Repositories.Events.csproj">
+      <Project>{62A5D5AD-D1EB-4D6D-8BA0-45236693D3ED}</Project>
+      <Name>xyLOGIX.Api.Data.Repositories.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Api.Data.Repositories\xyLOGIX.Api.Data.Repositories.Interfaces\xyLOGIX.Api.Data.Repositories.Interfaces.csproj">
+      <Project>{ED776EAD-7091-452A-8E64-07CBA0C2396A}</Project>
+      <Name>xyLOGIX.Api.Data.Repositories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Api.Data.Providers.Interfaces\xyLOGIX.Api.Data.Providers.Interfaces.csproj">
+      <Project>{CBD7FA8B-418A-409C-83D4-BBBC727E440F}</Project>
+      <Name>xyLOGIX.Api.Data.Providers.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
