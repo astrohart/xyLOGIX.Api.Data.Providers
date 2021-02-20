@@ -5,7 +5,7 @@
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</ProjectGuid>
+    <ProjectGuid>{797D9A43-124A-4A96-BF33-22385E7D741F}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
