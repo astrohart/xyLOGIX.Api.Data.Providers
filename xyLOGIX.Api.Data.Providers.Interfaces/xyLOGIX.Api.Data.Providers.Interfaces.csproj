@@ -86,10 +86,13 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\xyLOGIX.Api.Data.Providers.Events\xyLOGIX.Api.Data.Providers.Events.csproj">
+    <ProjectReference Include="..\..\PortfolioMonitor\PortfolioMonitor.PriceGetters\PortfolioMonitor.PriceGetters.csproj">
       <Project>{84c1f71a-aaa4-4a08-9728-19e710965e4d}</Project>
-      <Name>xyLOGIX.Api.Data.Providers.Events</Name>
+      <Name>PortfolioMonitor.PriceGetters</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
