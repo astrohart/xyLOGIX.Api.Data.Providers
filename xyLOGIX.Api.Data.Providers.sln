@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Api.Data.Providers.Events", "xyLOGIX.Api.Data.Providers.Events\xyLOGIX.Api.Data.Providers.Events.csproj", "{84C1F71A-AAA4-4A08-9728-19E710965E4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Api.Data.Providers.Interfaces", "xyLOGIX.Api.Data.Providers.Interfaces\xyLOGIX.Api.Data.Providers.Interfaces.csproj", "{CBD7FA8B-418A-409C-83D4-BBBC727E440F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x64.Build.0 = Release|x64
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x86.ActiveCfg = Release|x86
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x86.Build.0 = Release|x86
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Debug|x64.ActiveCfg = Debug|x64
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Debug|x64.Build.0 = Debug|x64
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Debug|x86.ActiveCfg = Debug|x86
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Debug|x86.Build.0 = Debug|x86
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Release|x64.ActiveCfg = Release|x64
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Release|x64.Build.0 = Release|x64
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Release|x86.ActiveCfg = Release|x86
+		{CBD7FA8B-418A-409C-83D4-BBBC727E440F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
