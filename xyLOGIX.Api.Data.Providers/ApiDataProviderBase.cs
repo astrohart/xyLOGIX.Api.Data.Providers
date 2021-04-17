@@ -61,8 +61,8 @@ namespace xyLOGIX.Api.Data.Providers
         /// Child classes generally should override this constructor to fill the
         /// <see
         ///     cref="P:xyLOGIX.Api.Data.Providers.ApiDataProviderBase.Repository" />
-        /// property with a freshly-constructed <c>API Repository</c> object on behalf of
-        /// the client.
+        /// property with a freshly-constructed <c>API Repository</c> object on
+        /// behalf of the client.
         /// </remarks>
         protected ApiDataProviderBase()
             => CommonConstruct();
@@ -106,10 +106,6 @@ namespace xyLOGIX.Api.Data.Providers
         /// If offered by the endpoint, uses any DELETE request exposed to
         /// remove something from the target REST API's dataset.
         /// </summary>
-        /// <typeparam name="T">
-        /// Type of the object that represents a single element in the target
-        /// REST API endpoint's dataset.
-        /// </typeparam>
         /// <param name="recordToDelete">
         /// (Required.) Reference to an instance of the model type,
         /// <typeparamref name="T" /> , that specifies which object should be
@@ -242,8 +238,10 @@ namespace xyLOGIX.Api.Data.Providers
         /// </param>
         /// <returns>
         /// Reference to an instance of an object of type
-        /// <typeparam name="T" />
-        /// that contains the data from the found element or <c>null</c> if not found.
+        /// <typeparamref
+        ///     name="T" />
+        /// that contains the data from the found element or
+        /// <c>null</c> if not found.
         /// </returns>
         /// <remarks>
         /// If a target REST API supports it, clients of this repository may

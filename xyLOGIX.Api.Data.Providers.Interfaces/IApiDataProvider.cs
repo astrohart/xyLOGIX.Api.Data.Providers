@@ -53,10 +53,6 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// If offered by the endpoint, uses any DELETE request exposed to
         /// remove something from the target REST API's dataset.
         /// </summary>
-        /// <typeparam name="T">
-        /// Type of the object that represents a single element in the target
-        /// REST API endpoint's dataset.
-        /// </typeparam>
         /// <param name="recordToDelete">
         /// (Required.) Reference to an instance of the model type,
         /// <typeparamref name="T"/> , that specifies which object should be
@@ -175,7 +171,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// retrieves the desired element of the dataset exposed by the API.
         /// </param>
         /// <returns>
-        /// Reference to an instance of an object of type <typeparam name="T"/>
+        /// Reference to an instance of an object of type <typeparamref name="T"/>
         /// that contains the data from the found element or <c>null</c> if not found.
         /// </returns>
         /// <remarks>
