@@ -100,13 +100,6 @@ remove something from the target REST API's dataset.
 `T` , that specifies which object should be
 deleted from the API's dataset. |
 
-##### Generic Types
-
-| Name | Description |
-| ---- | ----------- |
-| T | Type of the object that represents a single element in the target
-REST API endpoint's dataset. |
-
 ##### Exceptions
 
 | Name | Description |
@@ -246,7 +239,7 @@ REST API to simply retrieve the object matching the specified
 
 ##### Returns
 
-Reference to an instance of an object of type 
+Reference to an instance of an object of type `T`
 that contains the data from the found element or `null` if not found.
 
 ##### Parameters
