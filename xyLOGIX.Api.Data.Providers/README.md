@@ -92,8 +92,8 @@ This constructor has no parameters.
 
 Child classes generally should override this constructor to fill the
 [Repository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase-Repository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase.Repository')
-property with a freshly-constructed `API Repository` object on behalf of
-the client.
+property with a freshly-constructed `API Repository` object on
+behalf of the client.
 
 <a name='P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-MaxPageSize'></a>
 ### MaxPageSize `property`
@@ -164,13 +164,6 @@ remove something from the target REST API's dataset.
 | recordToDelete | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of the model type,
 `T` , that specifies which object should be
 deleted from the API's dataset. |
-
-##### Generic Types
-
-| Name | Description |
-| ---- | ----------- |
-| T | Type of the object that represents a single element in the target
-REST API endpoint's dataset. |
 
 ##### Exceptions
 
@@ -322,8 +315,9 @@ REST API to simply retrieve the object matching the specified
 ##### Returns
 
 Reference to an instance of an object of type
-
-that contains the data from the found element or `null` if not found.
+`T`
+that contains the data from the found element or
+`null` if not found.
 
 ##### Parameters
 
