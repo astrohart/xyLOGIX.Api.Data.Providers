@@ -128,11 +128,11 @@
   </Target>
   <PropertyGroup>
     <PreBuildEvent>exit /b 0
-if exist "$(TargetDir)$(ProjectName).md" (
+if exist "$(TargetDir)$(TargetName).md" (
     if exist "$(ProjectDir)README.md" (
         erase /F /Q "$(ProjectDir)README.md"
     )
-    copy /Y "$(TargetDir)$(ProjectName).md" "$(ProjectDir)README.md"
+    copy /Y "$(TargetDir)$(TargetName).md" "$(ProjectDir)README.md"
     git add "$(ProjectDir)README.md"
     git commit -m "Update README.md"
     git push -u origin master
@@ -145,11 +145,11 @@ if "$(ConfigurationName)"=="Release" (
 	erase /F /S /Q "$(TargetDir)*.pdb"
 	erase /F /S /Q "$(TargetDir)*.config"
 	erase /F /S /Q "$(TargetDir)*.vshost.exe"
-	attrib +r "$(TargetDir)$(ProjectName).xml"
-	attrib +r "$(TargetDir)$(ProjectName).md"
+	attrib +r "$(TargetDir)$(TargetName).xml"
+	attrib +r "$(TargetDir)$(TargetName).md"
 	erase /F /S /Q "$(TargetDir)*.xml"
-	attrib -r "$(TargetDir)$(ProjectName).xml"
-	attrib -r "$(TargetDir)$(ProjectName).md"
+	attrib -r "$(TargetDir)$(TargetName).xml"
+	attrib -r "$(TargetDir)$(TargetName).md"
 )
 exit /b 0</PostBuildEvent>
   </PropertyGroup>
