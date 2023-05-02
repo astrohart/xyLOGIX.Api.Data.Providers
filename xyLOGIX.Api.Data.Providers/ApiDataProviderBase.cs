@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using xyLOGIX.Api.Data.Providers.Interfaces;
 using xyLOGIX.Api.Data.Repositories.Events;
 using xyLOGIX.Api.Data.Repositories.Interfaces;
+using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Api.Data.Providers
 {
@@ -44,10 +45,13 @@ namespace xyLOGIX.Api.Data.Providers
         /// </remarks>
         protected ApiDataProviderBase(IApiRepository<T> repository)
         {
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: The ApiDataProviderBase constructor that takes a Repository has been called."
+            );
+
             Repository = repository ??
                          throw new ArgumentNullException(nameof(repository));
-
-            CommonConstruct();
         }
 
         /// <summary>
@@ -65,15 +69,12 @@ namespace xyLOGIX.Api.Data.Providers
         /// behalf of the client.
         /// </remarks>
         protected ApiDataProviderBase()
-            => CommonConstruct();
-
-        /// <summary>
-        /// Gets a reference to the object that implements the
-        /// <see
-        ///     cref="T:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository" />
-        /// interface that provides this object's functionality.
-        /// </summary>
-        protected abstract IApiRepository<T> Repository { get; set; }
+        {
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: The ApiDataProviderBase parameter-less constructor has been called."
+            );
+        }
 
         /// <summary>
         /// Gets or sets the maximum number of elements per page that the API
@@ -101,6 +102,14 @@ namespace xyLOGIX.Api.Data.Providers
         /// </remarks>
         public int PageSize
             => Repository.PageSize;
+
+        /// <summary>
+        /// Gets a reference to the object that implements the
+        /// <see
+        ///     cref="T:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository" />
+        /// interface that provides this object's functionality.
+        /// </summary>
+        protected abstract IApiRepository<T> Repository { get; set; }
 
         /// <summary>
         /// If offered by the endpoint, uses any DELETE request exposed to
@@ -367,7 +376,17 @@ namespace xyLOGIX.Api.Data.Providers
         /// Executes the processing that must be performed by all of the various
         /// overloads of this class' constructor.
         /// </summary>
-        private void CommonConstruct()
-            => Repository.IterationError += OnRepositoryIterationError;
+        protected void InitializeRepository()
+        {
+            try
+            {
+                Repository.IterationError += OnRepositoryIterationError;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
     }
 }
