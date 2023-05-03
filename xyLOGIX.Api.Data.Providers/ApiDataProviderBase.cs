@@ -68,13 +68,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// property with a freshly-constructed <c>API Repository</c> object on
         /// behalf of the client.
         /// </remarks>
-        protected ApiDataProviderBase()
-        {
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: The ApiDataProviderBase parameter-less constructor has been called."
-            );
-        }
+        protected ApiDataProviderBase() { }
 
         /// <summary>
         /// Gets or sets the maximum number of elements per page that the API
@@ -355,6 +349,23 @@ namespace xyLOGIX.Api.Data.Providers
             => Repository.Update(recordToUpdate);
 
         /// <summary>
+        /// Executes the processing that must be performed by all of the various
+        /// overloads of this class' constructor.
+        /// </summary>
+        protected void InitializeRepository()
+        {
+            try
+            {
+                Repository.IterationError += OnRepositoryIterationError;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.IterationError" />
@@ -371,22 +382,5 @@ namespace xyLOGIX.Api.Data.Providers
         /// </remarks>
         protected abstract void OnRepositoryIterationError(object sender,
             IterationErrorEventArgs e);
-
-        /// <summary>
-        /// Executes the processing that must be performed by all of the various
-        /// overloads of this class' constructor.
-        /// </summary>
-        protected void InitializeRepository()
-        {
-            try
-            {
-                Repository.IterationError += OnRepositoryIterationError;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
     }
 }

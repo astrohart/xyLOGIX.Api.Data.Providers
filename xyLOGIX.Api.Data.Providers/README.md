@@ -9,12 +9,12 @@
   - [MaxPageSize](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-MaxPageSize 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.MaxPageSize')
   - [PageSize](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-PageSize 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.PageSize')
   - [Repository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Repository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Repository')
-  - [CommonConstruct()](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-CommonConstruct 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.CommonConstruct')
   - [Delete(recordToDelete)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Delete(`0)')
   - [DeleteAll(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-DeleteAll-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.DeleteAll(System.Predicate{`0})')
   - [Find(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Find-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Find(System.Predicate{`0})')
   - [Get(searchParams)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Get-System-Object- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Get(System.Object)')
   - [GetAll()](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-GetAll 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.GetAll')
+  - [InitializeRepository()](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-InitializeRepository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.InitializeRepository')
   - [OnRepositoryIterationError(sender,e)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-OnRepositoryIterationError-System-Object,xyLOGIX-Api-Data-Repositories-Events-IterationErrorEventArgs- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.OnRepositoryIterationError(System.Object,xyLOGIX.Api.Data.Repositories.Events.IterationErrorEventArgs)')
   - [Update(recordToUpdate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Update-`0- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Update(`0)')
 - [Resources](#T-xyLOGIX-Api-Data-Providers-Properties-Resources 'xyLOGIX.Api.Data.Providers.Properties.Resources')
@@ -136,18 +136,6 @@ from 1 by setting this property.
 Gets a reference to the object that implements the
 [IApiRepository](#T-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository')
 interface that provides this object's functionality.
-
-<a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-CommonConstruct'></a>
-### CommonConstruct() `method`
-
-##### Summary
-
-Executes the processing that must be performed by all of the various
-overloads of this class' constructor.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0-'></a>
 ### Delete(recordToDelete) `method`
@@ -408,6 +396,18 @@ its entire available value set of elements.
 
 
 This method is all-or-nothing.
+
+<a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-InitializeRepository'></a>
+### InitializeRepository() `method`
+
+##### Summary
+
+Executes the processing that must be performed by all of the various
+overloads of this class' constructor.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-OnRepositoryIterationError-System-Object,xyLOGIX-Api-Data-Repositories-Events-IterationErrorEventArgs-'></a>
 ### OnRepositoryIterationError(sender,e) `method`
