@@ -380,7 +380,10 @@ namespace xyLOGIX.Api.Data.Providers
         /// <remarks>
         /// This method is typically invoked from an exception handler.
         /// </remarks>
-        protected abstract void OnRepositoryIterationError(object sender,
-            IterationErrorEventArgs e);
+        protected virtual void OnRepositoryIterationError(object sender,
+                IterationErrorEventArgs e)
+
+            // dump all the exception info to the log
+            => DebugUtils.LogException(e.Exception);
     }
 }

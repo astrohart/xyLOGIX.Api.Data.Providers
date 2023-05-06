@@ -116,6 +116,10 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Api.Data.Iterators\xyLOGIX.Api.Data.Iterators.Exceptions\xyLOGIX.Api.Data.Iterators.Exceptions.csproj">
+      <Project>{C86E05F7-04BB-4A45-B264-B3BF976D5B04}</Project>
+      <Name>xyLOGIX.Api.Data.Iterators.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Api.Data.Repositories\xyLOGIX.Api.Data.Repositories.Events\xyLOGIX.Api.Data.Repositories.Events.csproj">
       <Project>{62A5D5AD-D1EB-4D6D-8BA0-45236693D3ED}</Project>
       <Name>xyLOGIX.Api.Data.Repositories.Events</Name>
