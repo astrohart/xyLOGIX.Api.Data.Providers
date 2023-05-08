@@ -116,7 +116,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// </param>
         /// <remarks>
         /// Not all REST APIs expose a means of deleting items from their
-        /// datasets. In this case, implementations of this method must throw
+        /// dataset. In this case, implementations of this method must throw
         /// <see cref="T:System.NotSupportedException" />
         /// <para />
         /// Implementers are free to deny access to this functionality (even if
@@ -154,7 +154,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// </param>
         /// <remarks>
         /// Not all REST APIs expose a means of deleting items from their
-        /// datasets. In this case, implementations of this method must throw
+        /// dataset. In this case, implementations of this method must throw
         /// <see cref="T:System.NotSupportedException" />.
         /// <para />
         /// Implementers are free to deny access to this functionality (even if

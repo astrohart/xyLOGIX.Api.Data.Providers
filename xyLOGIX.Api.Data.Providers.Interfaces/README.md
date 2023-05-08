@@ -111,7 +111,7 @@ accesses the target REST API in the event the operation was not successful. |
 ##### Remarks
 
 Not all REST APIs expose a means of deleting items from their
-datasets. In this case, implementations of this method must throw
+dataset. In this case, implementations of this method must throw
 [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException')
 
 
@@ -160,7 +160,7 @@ accesses the target REST API in the event the operation was not successful. |
 ##### Remarks
 
 Not all REST APIs expose a means of deleting items from their
-datasets. In this case, implementations of this method must throw
+dataset. In this case, implementations of this method must throw
 [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
 
 
