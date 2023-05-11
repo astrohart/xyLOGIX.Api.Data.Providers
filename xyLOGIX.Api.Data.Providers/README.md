@@ -40,7 +40,7 @@ some fancy OOP footwork.
 
 | Name | Description |
 | ---- | ----------- |
-| T | Type name of the POCO class that comes from the API's library and which
+| T | Type name of the POCO class that comes from the API library and which
 represents a single record in the dataset of the target API. |
 
 <a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-#ctor-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository{`0}-'></a>
@@ -119,7 +119,7 @@ time from the target REST API.
 ##### Remarks
 
 The Find, Delete, DeleteAll, and Update methods, by default, iterate
-through the target REST API's data set a single element at a time.
+through the target REST API data set a single element at a time.
 
 
 
@@ -143,7 +143,7 @@ interface that provides this object's functionality.
 ##### Summary
 
 If offered by the endpoint, uses any DELETE request exposed to
-remove something from the target REST API's dataset.
+remove something from the target REST API dataset.
 
 ##### Parameters
 
@@ -151,7 +151,7 @@ remove something from the target REST API's dataset.
 | ---- | ---- | ----------- |
 | recordToDelete | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of the model type,
 `T` , that specifies which object should be
-deleted from the API's dataset. |
+deleted from the API dataset. |
 
 ##### Exceptions
 
@@ -201,7 +201,7 @@ a single element of the dataset.
 If the predicate returns `true` for a given instance of the
 element model object, then this object strives to remove that
 element from the dataset using the appropriate method call on the
-target REST API's client library. |
+target REST API client library. |
 
 ##### Exceptions
 
