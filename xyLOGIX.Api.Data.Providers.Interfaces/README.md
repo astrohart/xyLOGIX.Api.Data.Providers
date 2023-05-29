@@ -75,7 +75,7 @@ time from the target REST API.
 ##### Remarks
 
 The Find, Delete, DeleteAll, and Update methods, by default, iterate
-through the target REST API's data set a single element at a time.
+through the target REST API data set a single element at a time.
 
 
 
@@ -90,7 +90,7 @@ from 1 by setting this property.
 ##### Summary
 
 If offered by the endpoint, uses any DELETE request exposed to
-remove something from the target REST API's dataset.
+remove something from the target REST API dataset.
 
 ##### Parameters
 
@@ -98,7 +98,7 @@ remove something from the target REST API's dataset.
 | ---- | ---- | ----------- |
 | recordToDelete | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of the model type,
 `T` , that specifies which object should be
-deleted from the API's dataset. |
+deleted from the API dataset. |
 
 ##### Exceptions
 
@@ -147,7 +147,7 @@ a single element of the dataset.
 If the predicate returns `true` for a given instance of the
 element model object, then this object strives to remove that
 element from the dataset using the appropriate method call on the
-target REST API's client library. |
+target REST API client library. |
 
 ##### Exceptions
 
