@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace xyLOGIX.Api.Data.Providers.Interfaces
