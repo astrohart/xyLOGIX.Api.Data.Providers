@@ -106,6 +106,11 @@ namespace xyLOGIX.Api.Data.Providers
         protected abstract IApiRepository<T> Repository { get; set; }
 
         /// <summary>
+        /// Gets or sets a value saying whether to use a Repository with this object.
+        /// </summary>
+        public bool UseRepository { get; set; } = true;
+
+        /// <summary>
         /// If offered by the endpoint, uses any DELETE request exposed to
         /// remove something from the target REST API dataset.
         /// </summary>
@@ -356,6 +361,11 @@ namespace xyLOGIX.Api.Data.Providers
         {
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Subscribing to the Iteration Error event on the Repository..."
+                );
+
                 Repository.IterationError += OnRepositoryIterationError;
             }
             catch (Exception ex)

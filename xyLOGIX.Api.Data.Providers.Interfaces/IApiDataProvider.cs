@@ -13,12 +13,12 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
     /// </typeparam>
     /// <remarks>
     /// This object sits in front of a API data repository.
-    /// <para/>
+    /// <para />
     /// Its job is to initialize a repository (and iterator and iterable) and
     /// then tie everything together, so that clients of this object only care
     /// about calling its methods to get at and manipulate the data that is
     /// exposed by the target API.
-    /// <para/>
+    /// <para />
     /// Basically, what this is, is an facade, adapter, or decorator (kind of a
     /// little of all three) for API repositories, iterators, and iterables.
     /// </remarks>
@@ -41,7 +41,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// <remarks>
         /// The Find, Delete, DeleteAll, and Update methods, by default, iterate
         /// through the target REST API data set a single element at a time.
-        /// <para/>
+        /// <para />
         /// Because we have to be careful about not hitting rate limits during
         /// these operations, this property allows clients of this class to
         /// customize the number of elements taken at a time to be different
@@ -50,21 +50,27 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         int PageSize { get; }
 
         /// <summary>
+        /// Gets or sets a value saying whether to use a Repository with this object.
+        /// </summary>
+        bool UseRepository { get; set; }
+
+        /// <summary>
         /// If offered by the endpoint, uses any DELETE request exposed to
         /// remove something from the target REST API dataset.
         /// </summary>
         /// <param name="recordToDelete">
         /// (Required.) Reference to an instance of the model type,
-        /// <typeparamref name="T"/> , that specifies which object should be
+        /// <typeparamref name="T" /> , that specifies which object should be
         /// deleted from the API dataset.
         /// </param>
         /// <remarks>
         /// Not all REST APIs expose a means of deleting items from their
         /// dataset. In this case, implementations of this method must throw
-        /// <see cref="T:System.NotSupportedException"/>
-        /// <para/>
+        /// <see cref="T:System.NotSupportedException" />
+        /// <para />
         /// Implementers are free to deny access to this functionality (even if
-        /// the target REST API supports it) by throwing <see cref="T:System.NotSupportedException"/>.
+        /// the target REST API supports it) by throwing
+        /// <see cref="T:System.NotSupportedException" />.
         /// </remarks>
         /// <exception cref="T:System.Exception">
         /// Bubbled up from whichever method call is made on the library that
@@ -78,17 +84,17 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// <summary>
         /// If supported by the target REST API, removes all elements from the
         /// dataset that satisfy the criteria expressed by the supplied
-        /// <paramref name="predicate"/>.
+        /// <paramref name="predicate" />.
         /// </summary>
         /// <param name="predicate">
         /// (Required.) Predicate expression that returns either <c>true</c> or
         /// <c>false</c> when supplied with an instance of the element model
-        /// type, <typeparamref name="T"/>, as a parameter.
-        /// <para/>
+        /// type, <typeparamref name="T" />, as a parameter.
+        /// <para />
         /// By element model we mean an instance of whatever POCO is supplied by
         /// the library providing access to the target REST API that represents
         /// a single element of the dataset.
-        /// <para/>
+        /// <para />
         /// If the predicate returns <c>true</c> for a given instance of the
         /// element model object, then this object strives to remove that
         /// element from the dataset using the appropriate method call on the
@@ -97,10 +103,11 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// <remarks>
         /// Not all REST APIs expose a means of deleting items from their
         /// dataset. In this case, implementations of this method must throw
-        /// <see cref="T:System.NotSupportedException"/>.
-        /// <para/>
+        /// <see cref="T:System.NotSupportedException" />.
+        /// <para />
         /// Implementers are free to deny access to this functionality (even if
-        /// the target REST API supports it) by throwing <see cref="T:System.NotSupportedException"/>.
+        /// the target REST API supports it) by throwing
+        /// <see cref="T:System.NotSupportedException" />.
         /// </remarks>
         /// <exception cref="T:System.Exception">
         /// Bubbled up from whichever method call is made on the library that
@@ -112,8 +119,9 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         void DeleteAll(Predicate<T> predicate);
 
         /// <summary>
-        /// Iterates through the dataset of the target REST API, <see
-        /// cref="P:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.PageSize"/>
+        /// Iterates through the dataset of the target REST API,
+        /// <see
+        ///     cref="P:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.PageSize" />
         /// elements at a time (default is 1), and tries to find an element
         /// matching the criteria provided.
         /// </summary>
@@ -123,9 +131,13 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// </param>
         /// <returns>
         /// This method iterates through the dataset of the target REST API,
-        /// testing each element against the provided <paramref
-        /// name="predicate"/> . The first element for which the <paramref
-        /// name="predicate"/> evaluates to <c>true</c> is then returned, or
+        /// testing each element against the provided
+        /// <paramref
+        ///     name="predicate" />
+        /// . The first element for which the
+        /// <paramref
+        ///     name="predicate" />
+        /// evaluates to <c>true</c> is then returned, or
         /// <c>null</c> if an error occurred or the matching element was
         /// otherwise not found.
         /// </returns>
@@ -134,18 +146,21 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// invoking the GetAll operation and then filtering with the LINQ Where
         /// method, in order to retrieve just those API elements that need to be
         /// retrieved until the desired one is found.
-        /// <para/>
+        /// <para />
         /// GetAll will suck down the entire dataset, and this may not be
         /// desirable because of rate limits etc.
-        /// <para/>
-        /// Implementations should throw <see
-        /// cref="T:System.NotSupportedException"/> in the event that the API
+        /// <para />
+        /// Implementations should throw
+        /// <see
+        ///     cref="T:System.NotSupportedException" />
+        /// in the event that the API
         /// does not support pagination -- or delegate the call to this object's
-        /// GetAll followed by <see cref="M:System.Linq.Enumerable.Where"/>
-        /// followed by <see cref="M:System.Linq.Enumerable.FirstOrDefault"/>.
-        /// <para/>
-        /// Alternatively, implementers may delegate this method to <see cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Get"/>.
-        /// <para/>
+        /// GetAll followed by <see cref="M:System.Linq.Enumerable.Where" />
+        /// followed by <see cref="M:System.Linq.Enumerable.FirstOrDefault" />.
+        /// <para />
+        /// Alternatively, implementers may delegate this method to
+        /// <see cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Get" />.
+        /// <para />
         /// This repository provides these two seemingly redundant ways of
         /// searching for objects since not all REST API controllers expose the
         /// same functionality set or have the same rate-limit concerns.
@@ -162,16 +177,16 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// <summary>
         /// Strives to invoke the appropriate GET method exposed by the target
         /// REST API to simply retrieve the object matching the specified
-        /// <paramref name="searchParams"/> without pagination or iteration.
+        /// <paramref name="searchParams" /> without pagination or iteration.
         /// </summary>
         /// <param name="searchParams">
-        /// (Required.) A <see cref="T:System.Dynamic.ExpandoObject"/> whose
+        /// (Required.) A <see cref="T:System.Dynamic.ExpandoObject" /> whose
         /// parameters contain search values (or <c>null</c> s, if allowed by
         /// various REST APIs) to be fed to the target REST API method that
         /// retrieves the desired element of the dataset exposed by the API.
         /// </param>
         /// <returns>
-        /// Reference to an instance of an object of type <typeparamref name="T"/>
+        /// Reference to an instance of an object of type <typeparamref name="T" />
         /// that contains the data from the found element or <c>null</c> if not found.
         /// </returns>
         /// <remarks>
@@ -179,16 +194,18 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// want to avail themselves of this method when they know that their
         /// request needs to result in a single API call and a single element to
         /// be returned from the dataset.
-        /// <para/>
+        /// <para />
         /// At first glance, it would appear that this method is a duplicate of
-        /// <see cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find"/>.
-        /// <para/>
+        /// <see cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find" />.
+        /// <para />
         /// Implementers should make this method call the REST API method that
         /// directly retrieves the object satisfying the provided criteria; if
         /// such a method is not available, then implementers should delegate to
-        /// the <see
-        /// cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find"/> method.
-        /// <para/>
+        /// the
+        /// <see
+        ///     cref="M:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find" />
+        /// method.
+        /// <para />
         /// This repository provides these two seemingly redundant ways of
         /// searching for objects since not all REST API controllers expose the
         /// same functionality set or have the same rate-limit concerns.
@@ -198,7 +215,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// accesses the target REST API in the event the operation was not successful.
         /// </exception>
         /// <exception cref="T:ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="searchParams"/> ,
+        /// Thrown if the required parameter, <paramref name="searchParams" /> ,
         /// is set to a <c>null</c> reference.
         /// </exception>
         /// <exception cref="T:System.NotSupportedException">
@@ -214,17 +231,19 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// rate-limiting, communications bandwidth, and memory storage concerns.
         /// </summary>
         /// <returns>
-        /// Collection of instances of the element model object, <typeparamref
-        /// name="T"/> , that can be used to further narrow the results.
+        /// Collection of instances of the element model object,
+        /// <typeparamref
+        ///     name="T" />
+        /// , that can be used to further narrow the results.
         /// Implementers should write the code for this method to make as
         /// aggressive an attempt as possible to access the gamut of the
         /// available objects exposed by the target REST API endpoint.
         /// </returns>
         /// <remarks>
-        /// Implementers must throw <see cref="T:System.NotSupportedException"/>
+        /// Implementers must throw <see cref="T:System.NotSupportedException" />
         /// in the event that the target REST API does not support retrieving
         /// its entire available value set of elements.
-        /// <para/>
+        /// <para />
         /// This method is all-or-nothing.
         /// </remarks>
         /// <exception cref="T:System.Exception">
@@ -240,20 +259,23 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
 
         /// <summary>
         /// Calls a PUT method on the target REST API (if supported) to change
-        /// the data element specified by the criteria in <paramref name="recordToUpdate"/>.
+        /// the data element specified by the criteria in
+        /// <paramref name="recordToUpdate" />.
         /// </summary>
         /// <param name="recordToUpdate">
         /// </param>
         /// <remarks>
         /// If the target REST API does not support the concept of updating
-        /// specific data elements, then implementers must throw <see cref="T:System.NotSupportedException"/>.
-        /// <para/>
+        /// specific data elements, then implementers must throw
+        /// <see cref="T:System.NotSupportedException" />.
+        /// <para />
         /// It should be noted that there is no Save method in this repository
         /// pattern. This is due to the fact that, when making this kind of call
         /// on a REST API, changes are (conventionally) applied immediately.
-        /// <para/>
+        /// <para />
         /// Implementers are free to deny access to this functionality (even if
-        /// the target REST API supports it) by throwing <see cref="T:System.NotSupportedException"/>.
+        /// the target REST API supports it) by throwing
+        /// <see cref="T:System.NotSupportedException" />.
         /// </remarks>
         /// <exception cref="T:System.Exception">
         /// Bubbled up from whichever method call is made on the library that
@@ -261,7 +283,8 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// </exception>
         /// <exception cref="T:System.NotSupportedException">
         /// Thrown if the target API does not support a single element of its
-        /// dataset, or if this repository chooses to not allow access to that functionality.
+        /// dataset, or if this repository chooses to not allow access to that
+        /// functionality.
         /// </exception>
         void Update(T recordToUpdate);
     }
