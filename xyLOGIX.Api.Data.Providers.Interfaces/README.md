@@ -6,6 +6,7 @@
 - [IApiDataProvider\`1](#T-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1')
   - [MaxPageSize](#P-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-MaxPageSize 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.MaxPageSize')
   - [PageSize](#P-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-PageSize 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.PageSize')
+  - [UseRepository](#P-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-UseRepository 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.UseRepository')
   - [Delete(recordToDelete)](#M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-Delete-`0- 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.Delete(`0)')
   - [DeleteAll(predicate)](#M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-DeleteAll-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.DeleteAll(System.Predicate{`0})')
   - [Find(predicate)](#M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-Find-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.Interfaces.IApiDataProvider`1.Find(System.Predicate{`0})')
@@ -84,6 +85,13 @@ these operations, this property allows clients of this class to
 customize the number of elements taken at a time to be different
 from 1 by setting this property.
 
+<a name='P-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-UseRepository'></a>
+### UseRepository `property`
+
+##### Summary
+
+Gets or sets a value saying whether to use a Repository with this object.
+
 <a name='M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-Delete-`0-'></a>
 ### Delete(recordToDelete) `method`
 
@@ -117,7 +125,8 @@ dataset. In this case, implementations of this method must throw
 
 
 Implementers are free to deny access to this functionality (even if
-the target REST API supports it) by throwing [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
+the target REST API supports it) by throwing
+[NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
 
 <a name='M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-DeleteAll-System-Predicate{`0}-'></a>
 ### DeleteAll(predicate) `method`
@@ -166,21 +175,27 @@ dataset. In this case, implementations of this method must throw
 
 
 Implementers are free to deny access to this functionality (even if
-the target REST API supports it) by throwing [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
+the target REST API supports it) by throwing
+[NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
 
 <a name='M-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-Find-System-Predicate{`0}-'></a>
 ### Find(predicate) `method`
 
 ##### Summary
 
-Iterates through the dataset of the target REST API, [PageSize](#P-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-PageSize 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.PageSize')
+Iterates through the dataset of the target REST API,
+[PageSize](#P-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-PageSize 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.PageSize')
 elements at a time (default is 1), and tries to find an element
 matching the criteria provided.
 
 ##### Returns
 
 This method iterates through the dataset of the target REST API,
-testing each element against the provided `predicate` . The first element for which the `predicate` evaluates to `true` is then returned, or
+testing each element against the provided
+`predicate`
+. The first element for which the
+`predicate`
+evaluates to `true` is then returned, or
 `null` if an error occurred or the matching element was
 otherwise not found.
 
@@ -213,14 +228,17 @@ desirable because of rate limits etc.
 
 
 
-Implementations should throw [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException') in the event that the API
+Implementations should throw
+[NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException')
+in the event that the API
 does not support pagination -- or delegate the call to this object's
 GetAll followed by [Where](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Enumerable.Where 'System.Linq.Enumerable.Where')
 followed by [FirstOrDefault](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Enumerable.FirstOrDefault 'System.Linq.Enumerable.FirstOrDefault').
 
 
 
-Alternatively, implementers may delegate this method to [Get](#M-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-Get 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Get').
+Alternatively, implementers may delegate this method to
+[Get](#M-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-Get 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Get').
 
 
 
@@ -278,7 +296,9 @@ At first glance, it would appear that this method is a duplicate of
 Implementers should make this method call the REST API method that
 directly retrieves the object satisfying the provided criteria; if
 such a method is not available, then implementers should delegate to
-the [Find](#M-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-Find 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find') method.
+the
+[Find](#M-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository-Find 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository.Find')
+method.
 
 
 
@@ -299,7 +319,9 @@ rate-limiting, communications bandwidth, and memory storage concerns.
 
 ##### Returns
 
-Collection of instances of the element model object, `T` , that can be used to further narrow the results.
+Collection of instances of the element model object,
+`T`
+, that can be used to further narrow the results.
 Implementers should write the code for this method to make as
 aggressive an attempt as possible to access the gamut of the
 available objects exposed by the target REST API endpoint.
@@ -334,7 +356,8 @@ This method is all-or-nothing.
 ##### Summary
 
 Calls a PUT method on the target REST API (if supported) to change
-the data element specified by the criteria in `recordToUpdate`.
+the data element specified by the criteria in
+`recordToUpdate`.
 
 ##### Parameters
 
@@ -349,12 +372,14 @@ the data element specified by the criteria in `recordToUpdate`.
 | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Bubbled up from whichever method call is made on the library that
 accesses the target REST API in the event the operation was not successful. |
 | [System.NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException') | Thrown if the target API does not support a single element of its
-dataset, or if this repository chooses to not allow access to that functionality. |
+dataset, or if this repository chooses to not allow access to that
+functionality. |
 
 ##### Remarks
 
 If the target REST API does not support the concept of updating
-specific data elements, then implementers must throw [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
+specific data elements, then implementers must throw
+[NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
 
 
 
@@ -365,7 +390,8 @@ on a REST API, changes are (conventionally) applied immediately.
 
 
 Implementers are free to deny access to this functionality (even if
-the target REST API supports it) by throwing [NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
+the target REST API supports it) by throwing
+[NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException').
 
 <a name='T-xyLOGIX-Api-Data-Providers-Interfaces-Properties-Resources'></a>
 ## Resources `type`

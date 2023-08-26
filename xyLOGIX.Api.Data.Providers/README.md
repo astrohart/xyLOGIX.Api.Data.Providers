@@ -9,6 +9,7 @@
   - [MaxPageSize](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-MaxPageSize 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.MaxPageSize')
   - [PageSize](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-PageSize 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.PageSize')
   - [Repository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Repository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Repository')
+  - [UseRepository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-UseRepository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.UseRepository')
   - [Delete(recordToDelete)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Delete(`0)')
   - [DeleteAll(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-DeleteAll-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.DeleteAll(System.Predicate{`0})')
   - [Find(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Find-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Find(System.Predicate{`0})')
@@ -136,6 +137,13 @@ from 1 by setting this property.
 Gets a reference to the object that implements the
 [IApiRepository](#T-xyLOGIX-Api-Data-Repositories-Interfaces-IApiRepository 'xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository')
 interface that provides this object's functionality.
+
+<a name='P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-UseRepository'></a>
+### UseRepository `property`
+
+##### Summary
+
+Gets or sets a value saying whether to use a Repository with this object.
 
 <a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0-'></a>
 ### Delete(recordToDelete) `method`
