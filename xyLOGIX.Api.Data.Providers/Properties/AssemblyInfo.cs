@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Support Library for xyLOGIX.Api.Data.Providers")]
 [assembly:
     AssemblyCopyright(
-        "Copyright ? 2020 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX xyLOGIX.Api.Data.Providers.  xyLOGIX.Api.Data.Providers is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
