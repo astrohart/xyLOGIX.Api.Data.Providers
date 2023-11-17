@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Threading;
+using System;
 using System.Collections.Generic;
 using xyLOGIX.Api.Data.Providers.Interfaces;
 using xyLOGIX.Api.Data.Repositories.Events;
@@ -378,6 +379,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// data.
         /// </param>
         /// <remarks> This method is typically invoked from an exception handler. </remarks>
+        [EntryPoint]        
         protected virtual void OnRepositoryIterationError(
                 object sender,
                 IterationErrorEventArgs e
