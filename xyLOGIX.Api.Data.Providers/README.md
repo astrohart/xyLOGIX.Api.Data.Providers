@@ -10,6 +10,7 @@
   - [PageSize](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-PageSize 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.PageSize')
   - [Repository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Repository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Repository')
   - [UseRepository](#P-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-UseRepository 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.UseRepository')
+  - [#cctor()](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-#cctor 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.#cctor')
   - [Delete(recordToDelete)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Delete(`0)')
   - [DeleteAll(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-DeleteAll-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.DeleteAll(System.Predicate{`0})')
   - [Find(predicate)](#M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Find-System-Predicate{`0}- 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase`1.Find(System.Predicate{`0})')
@@ -143,6 +144,23 @@ interface that provides this object's functionality.
 
 Gets or sets a value saying whether to use a Repository with this
 object.
+
+<a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [ApiDataProviderBase](#T-xyLOGIX-Api-Data-Providers-ApiDataProviderBase 'xyLOGIX.Api.Data.Providers.ApiDataProviderBase') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
 
 <a name='M-xyLOGIX-Api-Data-Providers-ApiDataProviderBase`1-Delete-`0-'></a>
 ### Delete(recordToDelete) `method`

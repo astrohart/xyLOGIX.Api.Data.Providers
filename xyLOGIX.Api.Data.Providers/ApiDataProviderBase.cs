@@ -1,4 +1,5 @@
-﻿using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Threading;
 using System;
 using System.Collections.Generic;
 using xyLOGIX.Api.Data.Providers.Interfaces;
@@ -23,6 +24,17 @@ namespace xyLOGIX.Api.Data.Providers
         where T : class
     {
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:xyLOGIX.Api.Data.Providers.ApiDataProviderBase" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static ApiDataProviderBase() { }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:PortfolioMonitor.Investments.ApiDatasetProviderBase" /> and
         /// returns a reference to it.
@@ -42,6 +54,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// This overload of the constructor is to be utilized when you want to
         /// inject an existing <c>API Repository</c> object into this provider.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected ApiDataProviderBase(IApiRepository<T> repository)
         {
             DebugUtils.WriteLine(
@@ -64,6 +77,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// property with a freshly-constructed <c>API Repository</c> object on behalf of
         /// the client.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected ApiDataProviderBase() { }
 
         /// <summary>
@@ -346,6 +360,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// Executes the processing that must be performed by all of the various
         /// overloads of this class' constructor.
         /// </summary>
+        [EntryPoint]
         protected void InitializeRepository()
         {
             try
@@ -379,7 +394,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// data.
         /// </param>
         /// <remarks> This method is typically invoked from an exception handler. </remarks>
-        [EntryPoint]        
+        [EntryPoint]
         protected virtual void OnRepositoryIterationError(
                 object sender,
                 IterationErrorEventArgs e

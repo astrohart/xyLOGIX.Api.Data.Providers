@@ -22,7 +22,6 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
     /// Basically, what this is, is an facade, adapter, or decorator (kind of a little
     /// of all three) for API repositories, iterators, and iterables.
     /// </remarks>
-    [Synchronized]
     public interface IApiDataProvider<T> where T : class
     {
         /// <summary>
