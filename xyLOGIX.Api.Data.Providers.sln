@@ -40,6 +40,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Assemblies.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections.Synchronized", "..\xyLOGIX.Collections.Synchronized.VS2019\xyLOGIX.Collections.Synchronized\xyLOGIX.Collections.Synchronized.csproj", "{33FD8195-DDE4-4245-9EDA-35836CAA40C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B75920BE-CCC1-4053-9146-8C2ACC24BD70}"
+	ProjectSection(SolutionItems) = preProject
+		xyLOGIX.Api.Data.Providers.pssln = xyLOGIX.Api.Data.Providers.pssln
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
