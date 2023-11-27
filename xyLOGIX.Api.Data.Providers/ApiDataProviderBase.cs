@@ -2,6 +2,7 @@
 using PostSharp.Patterns.Threading;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using xyLOGIX.Api.Data.Providers.Interfaces;
 using xyLOGIX.Api.Data.Repositories.Events;
 using xyLOGIX.Api.Data.Repositories.Interfaces;
@@ -89,7 +90,59 @@ namespace xyLOGIX.Api.Data.Providers
         /// property is set by a required constructor parameter.
         /// </remarks>
         public int MaxPageSize
-            => Repository.MaxPageSize;
+        {
+            get
+            {
+                var result = 0;
+
+                try
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                    );
+
+                    // Check to see if the required property, Repository, is null. If it is, send an
+                    // error to the log file and quit, returning the default value of the result
+                    // variable.
+                    if (Repository == null)
+                    {
+                        // the property Repository is required.
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug, $"ApiDataProviderBase.MaxPageSize: Result = {result}"
+                        );
+
+                        // stop.
+                        return result;
+                    }
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                    );
+
+                    result = Repository.MaxPageSize;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = 0;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, $"ApiDataProviderBase.MaxPageSize: Result = {result}"
+                );
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the page size, i.e., how many elements to request at a
@@ -104,7 +157,59 @@ namespace xyLOGIX.Api.Data.Providers
         /// of elements taken at a time to be different from 1 by setting this property.
         /// </remarks>
         public int PageSize
-            => Repository.PageSize;
+        {
+            get
+            {
+                var result = 0;
+
+                try
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                    );
+
+                    // Check to see if the required property, Repository, is null. If it is, send an
+                    // error to the log file and quit, returning the default value of the result
+                    // variable.
+                    if (Repository == null)
+                    {
+                        // the property Repository is required.
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug, $"ApiDataProviderBase.PageSize: Result = {result}"
+                        );
+
+                        // stop.
+                        return result;
+                    }
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                    );
+
+                    result = Repository.PageSize;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = 0;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, $"ApiDataProviderBase.PageSize: Result = {result}"
+                );
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets a reference to the object that implements the
@@ -147,7 +252,65 @@ namespace xyLOGIX.Api.Data.Providers
         /// not support the concept of element deletion.
         /// </exception>
         public void Delete(T recordToDelete)
-            => Repository.Delete(recordToDelete);
+        {
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Delete: Checking whether the 'recordToDelete' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, recordToDelete, is null. If it is, send an
+                // error to the log file and quit, returning from this method.
+                if (recordToDelete == null)
+                {
+                    // the parameter recordToDelete is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ApiDataProviderBase.Delete: *** *ERROR *** A null reference was passed for the 'recordToDelete' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Delete: *** SUCCESS *** We have been passed a valid object reference for the 'recordToDelete' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning from the method.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                Repository.Delete(recordToDelete);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// If supported by the target REST API, removes all elements from the
@@ -186,7 +349,70 @@ namespace xyLOGIX.Api.Data.Providers
         /// not support the concept of element deletion.
         /// </exception>
         public void DeleteAll(Predicate<T> predicate)
-            => Repository.DeleteAll(predicate);
+        {
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.DeleteAll: Checking whether the 'predicate' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, predicate, is null. If it is, send an
+                // error to the log file and quit, returning from this method.
+                if (predicate == null)
+                {
+                    // the parameter predicate is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ApiDataProviderBase.DeleteAll: *** *ERROR *** A null reference was passed for the 'predicate' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.DeleteAll: *** SUCCESS *** We have been passed a valid object reference for the 'predicate' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning from the method.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.DeleteAll: Attempting to delete all data that matches the predicate..."
+                );
+
+                Repository.DeleteAll(predicate);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Iterates through the dataset of the target REST API,
@@ -236,7 +462,72 @@ namespace xyLOGIX.Api.Data.Providers
         /// does not support the concept of pagination.
         /// </exception>
         public T Find(Predicate<T> predicate)
-            => Repository.Find(predicate);
+        {
+            T result = default;
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Find: Checking whether the 'predicate' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, predicate, is null. If it is, send an
+                // error to the log file and quit, returning from this method.
+                if (predicate == null)
+                {
+                    // the parameter predicate is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ApiDataProviderBase.Find: *** *ERROR *** A null reference was passed for the 'predicate' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Find: *** SUCCESS *** We have been passed a valid object reference for the 'predicate' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                result = Repository.Find(predicate);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Strives to invoke the appropriate GET method exposed by the target
@@ -288,7 +579,57 @@ namespace xyLOGIX.Api.Data.Providers
         /// does not support the concept of pagination.
         /// </exception>
         public T Get(dynamic searchParams)
-            => Repository.Get(searchParams);
+        {
+            T result = default;
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Get: Retrieving data..."
+                );
+
+                result = Repository.Get(searchParams);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Data retrieval completed."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Obtains the gamut of elements in the target REST API dataset, using
@@ -322,7 +663,57 @@ namespace xyLOGIX.Api.Data.Providers
         /// server's database, even with paging.
         /// </exception>
         public IEnumerable<T> GetAll()
-            => Repository.GetAll();
+        {
+            var result = Enumerable.Empty<T>();
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.GetAll: Retrieving all data elements from the underlying data source..."
+                );
+
+                result = Repository.GetAll();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Data records retrieved."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Enumerable.Empty<T>();
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Calls a PUT method on the target REST API (if supported) to change
@@ -354,7 +745,74 @@ namespace xyLOGIX.Api.Data.Providers
         /// not allow access to that functionality.
         /// </exception>
         public void Update(T recordToUpdate)
-            => Repository.Update(recordToUpdate);
+        {
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning from the method.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Update: Checking whether the 'recordToUpdate' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, recordToUpdate, is null. If it is, send an
+                // error to the log file and quit, returning from this method.
+                if (recordToUpdate == null)
+                {
+                    // the parameter recordToUpdate is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ApiDataProviderBase.Update: *** *ERROR *** A null reference was passed for the 'recordToUpdate' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Update: *** SUCCESS *** We have been passed a valid object reference for the 'recordToUpdate' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ApiDataProviderBase.Update: Updating the data..."
+                );
+
+                Repository.Update(recordToUpdate);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Record updated."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Executes the processing that must be performed by all of the various
@@ -365,6 +823,30 @@ namespace xyLOGIX.Api.Data.Providers
         {
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'Repository' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, Repository, is null. If it is, send an
+                // error to the log file and quit, returning from the method.
+                if (Repository == null)
+                {
+                    // the property Repository is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'Repository' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'Repository' property has a valid object reference for its value."
+                );
+
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     "*** INFO: Subscribing to the Iteration Error event on the Repository..."
@@ -396,11 +878,16 @@ namespace xyLOGIX.Api.Data.Providers
         /// <remarks> This method is typically invoked from an exception handler. </remarks>
         [EntryPoint]
         protected virtual void OnRepositoryIterationError(
-                object sender,
-                IterationErrorEventArgs e
-            )
+            object sender,
+            IterationErrorEventArgs e
+        ) // dump all the exception info to the log
+        {
+            DebugUtils.WriteLine(
+                DebugLevel.Error,
+                "*** ERROR *** Repository data iteration error encountered."
+            );
 
-            // dump all the exception info to the log
-            => DebugUtils.LogException(e.Exception);
+            DebugUtils.LogException(e.Exception);
+        }
     }
 }
