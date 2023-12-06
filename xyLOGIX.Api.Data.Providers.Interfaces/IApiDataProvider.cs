@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Threading;
+using System;
 using System.Collections.Generic;
 
 namespace xyLOGIX.Api.Data.Providers.Interfaces
@@ -21,6 +22,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
     /// Basically, what this is, is an facade, adapter, or decorator (kind of a little
     /// of all three) for API repositories, iterators, and iterables.
     /// </remarks>
+    [Actor]
     public interface IApiDataProvider<T> where T : class
     {
         /// <summary>
