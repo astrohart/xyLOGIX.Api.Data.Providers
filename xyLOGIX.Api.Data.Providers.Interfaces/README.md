@@ -51,6 +51,10 @@ methods to get at and manipulate the data that is exposed by the target API.
 Basically, what this is, is an facade, adapter, or decorator (kind of a little
 of all three) for API repositories, iterators, and iterables.
 
+
+
+This object tree is NOT to be granted a threading model!
+
 <a name='P-xyLOGIX-Api-Data-Providers-Interfaces-IApiDataProvider`1-MaxPageSize'></a>
 ### MaxPageSize `property`
 

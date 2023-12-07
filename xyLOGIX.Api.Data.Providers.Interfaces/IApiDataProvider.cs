@@ -21,8 +21,9 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
     /// <para />
     /// Basically, what this is, is an facade, adapter, or decorator (kind of a little
     /// of all three) for API repositories, iterators, and iterables.
+    /// <para/>
+    /// <b>NOTE:</b> This object tree is NOT to be granted a threading model!
     /// </remarks>
-    [Actor]
     public interface IApiDataProvider<T> where T : class
     {
         /// <summary>
