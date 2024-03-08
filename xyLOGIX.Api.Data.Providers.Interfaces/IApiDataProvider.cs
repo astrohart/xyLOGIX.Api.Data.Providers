@@ -24,7 +24,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
     /// <para/>
     /// <b>NOTE:</b> This object tree is NOT to be granted a threading model!
     /// </remarks>
-    [Actor]
+    [Synchronized]
     public interface IApiDataProvider<T> where T : class
     {
         /// <summary>
