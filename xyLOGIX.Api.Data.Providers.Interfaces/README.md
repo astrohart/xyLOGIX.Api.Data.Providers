@@ -48,7 +48,7 @@ methods to get at and manipulate the data that is exposed by the target API.
 
 
 
-Basically, what this is, is an facade, adapter, or decorator (kind of a little
+Basically, what this is, is a facade, adapter, or decorator (kind of little
 of all three) for API repositories, iterators, and iterables.
 
 
