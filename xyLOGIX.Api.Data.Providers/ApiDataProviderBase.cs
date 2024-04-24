@@ -695,7 +695,7 @@ namespace xyLOGIX.Api.Data.Providers
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "ApiDataProviderBase.GetAll: Retrieving all data elements from the underlying data source..."
+                    "ApiDataProviderBase.GetAll: Retrieving all data elements from the underlying data quote..."
                 );
 
                 result = Repository.GetAll();
