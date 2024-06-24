@@ -21,6 +21,7 @@ namespace xyLOGIX.Api.Data.Providers
     /// Type name of the POCO class that comes from the API
     /// library and which represents a single record in the dataset of the target API.
     /// </typeparam>
+    [Synchronized]
     public abstract class ApiDataProviderBase<T> : IApiDataProvider<T>
         where T : class
     {
