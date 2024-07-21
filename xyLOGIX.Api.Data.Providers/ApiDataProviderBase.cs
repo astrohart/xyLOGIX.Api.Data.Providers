@@ -217,13 +217,13 @@ namespace xyLOGIX.Api.Data.Providers
         /// <see cref="T:xyLOGIX.Api.Data.Repositories.Interfaces.IApiRepository" />
         /// interface that provides this object's functionality.
         /// </summary>
-        protected abstract IApiRepository<T> Repository { get; set; }
+        protected abstract IApiRepository<T> Repository { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets a value saying whether to use a Repository with this
         /// object.
         /// </summary>
-        public bool UseRepository { get; set; } = true;
+        public bool UseRepository { [DebuggerStepThrough] get; [DebuggerStepThrough] set; } = true;
 
         /// <summary>
         /// If offered by the endpoint, uses any DELETE request exposed to remove

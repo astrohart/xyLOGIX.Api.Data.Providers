@@ -35,7 +35,7 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// This quantity is specified by nearly every REST API out there. This
         /// property is set by a required constructor parameter.
         /// </remarks>
-        int MaxPageSize { get; }
+        int MaxPageSize { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets or sets the page size, i.e., how many elements to request at a
@@ -49,13 +49,13 @@ namespace xyLOGIX.Api.Data.Providers.Interfaces
         /// operations, this property allows clients of this class to customize the number
         /// of elements taken at a time to be different from 1 by setting this property.
         /// </remarks>
-        int PageSize { get; }
+        int PageSize { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets or sets a value saying whether to use a Repository with this
         /// object.
         /// </summary>
-        bool UseRepository { get; set; }
+        bool UseRepository { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// If offered by the endpoint, uses any DELETE request exposed to remove
