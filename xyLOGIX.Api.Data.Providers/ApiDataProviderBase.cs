@@ -880,8 +880,8 @@ namespace xyLOGIX.Api.Data.Providers
         /// <remarks> This method is typically invoked from an exception handler. </remarks>
         [EntryPoint]
         protected virtual void OnRepositoryIterationError(
-            object sender,
-            IterationErrorEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] IterationErrorEventArgs e
         ) // dump all the exception info to the log
         {
             DebugUtils.WriteLine(
