@@ -19,6 +19,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Debug\xyLOGIX.Api.Data.Providers.Events.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -32,6 +33,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Release\xyLOGIX.Api.Data.Providers.Events.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -45,6 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Debug\xyLOGIX.Api.Data.Providers.Events.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -58,6 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Release\xyLOGIX.Api.Data.Providers.Events.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup>
