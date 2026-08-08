@@ -874,7 +874,7 @@ namespace xyLOGIX.Api.Data.Providers
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks> This method is typically invoked from an exception handler. </remarks>
